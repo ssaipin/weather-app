@@ -1,10 +1,10 @@
 
 <template>
   <div id="app">
-    <nav class="navbar-expand-md">
+    <nav class="nav navbar-expand-sm">
       <div class="container-fluid py-2 d-flex align-items-center">
         <nuxt-link to="/" class="navbar-brand d-flex">
-                <i class="fas fa-cloud-sun"></i> WeatherApp
+                WeatherApp
         </nuxt-link>
 
         <button 
@@ -41,10 +41,8 @@
 
 
 <style lang="scss">
-$brand-color: hotpink; // SCSS variable
 
 nav {
-  background-color: $brand-color; // use the variable
 
   ul {
     list-style: none;

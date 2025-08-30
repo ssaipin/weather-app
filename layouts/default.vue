@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="whole-content">
     <Navbar />
     <main class="p-4 d-flex flex-column min-vh-100">
       <NuxtPage />
@@ -18,5 +18,11 @@ export default {
 </script>
 
 <style lang="scss">
+.whole-content {
+  background-image: url('@/assets/sky.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 </style>
