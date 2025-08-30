@@ -12,12 +12,12 @@ export default defineNuxtConfig({
     
   ],
 
-  runtimeConfig: {
-    public: {
-      weatherApiKey: process.env.NUXT_ENV_WEATHER_API_KEY,
-      weatherApiUrl: process.env.NUXT_ENV_WEATHER_BASE_URL
-    }
-  },
+  // runtimeConfig: {
+  //   public: {
+  //     weatherApiKey: process.env.NUXT_ENV_WEATHER_API_KEY,
+  //     weatherApiUrl: process.env.NUXT_ENV_WEATHER_BASE_URL
+  //   }
+  // },
   
    ssr: true,
   

@@ -60,7 +60,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="content-card">
+  <div class="content-card pt-4">
     
     <div>
       <h1>Current Weather Location</h1>
@@ -102,8 +102,7 @@ onUnmounted(() => {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
- 
- 
-}
+  gap: 0.8em;
 
+}
 </style>

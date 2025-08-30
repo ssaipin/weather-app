@@ -1,4 +1,3 @@
-
 <script setup>
 import { computed } from 'vue'
 
@@ -84,6 +83,8 @@ const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
 .current-time {
   font-size: 1.5em;
   margin-top: -1em;
-
+}
+button {
+  background-color: transparent;
 }
 </style>
