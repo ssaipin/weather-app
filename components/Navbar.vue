@@ -1,74 +1,63 @@
-
 <template>
-  <div id="app">
-    <nav class="nav navbar-expand-sm">
-      <div class="container-fluid py-2 d-flex align-items-center">
-        <nuxt-link to="/" class="navbar-brand d-flex">
-                WeatherApp
-        </nuxt-link>
+  <nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <nuxt-link to="/" class="navbar-brand">
+        WeatherApp
+      </nuxt-link>
 
-        <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span> 
-        </button>
+      <!-- Hamburger toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <nuxt-link to="/" class="nav-link">Home</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/search" class="nav-link">Search</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/dashboard" class="nav-link">Dashboard</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/about" class="nav-link">About</nuxt-link>
-            </li>
-          </ul>
-        </div>  
+      <!-- Collapsible menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
+          <li class="nav-item me-3">
+            <nuxt-link to="/" class="nav-link">Home</nuxt-link>
+          </li>
+          <li class="nav-item me-3">
+            <nuxt-link to="/search" class="nav-link">Search</nuxt-link>
+          </li>
+          <li class="nav-item me-3">
+            <nuxt-link to="/forecast" class="nav-link">Forecast</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/about" class="nav-link">About</nuxt-link>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </div>
-    
-            
+    </div>
+  </nav>
 </template>
 
-
-
-<style lang="scss">
-
+<style scoped>
 nav {
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      display: inline-block;
-      margin-right: 1rem;
-
-      a {
-        color: black;
-        text-decoration: none;
-        font-size: 1.2em;
-
-        &:hover {
-          text-decoration: underline; // SCSS nesting
-        }
-      }
-    }
-  }
+  background-color: rgba(255, 255, 255, 0.3);
+  
 }
 .navbar-brand {
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: black;
   text-decoration: none;
 }
 
-</style>
+.nav-link {
+  font-size: 1.2rem;
+  color: black;
+}
 
+.nav-link:hover {
+  text-decoration: underline;
+}
+</style>

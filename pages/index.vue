@@ -64,18 +64,17 @@ onUnmounted(() => {
     
     <div>
       <h1>Current Weather Location</h1>
-      <!-- <p>Seattle Local Time: {{ currentTime }}</p> -->
+      <p class="lead">Real time and weather update</p>
     </div>
     
-    <!-- Current Location Weather -->
-    <div class="row mb-5">
-      <div class="col-12">
-        <div class="col-lg-8 mx-auto">
-          
+   
           <weather-card
             v-if="currentWeather"
             :city="currentWeather.name"
             :temp="currentWeather.main.temp"
+            :feels="currentWeather.main.feels_like"
+            :sunrise="currentWeather.sys.sunrise"
+            :sunset="currentWeather.sys.sunset"
             :humidity="currentWeather.main.humidity"
             :wind="currentWeather.wind.speed"
             :desc="currentWeather.weather[0].description"
@@ -89,10 +88,6 @@ onUnmounted(() => {
           </div>
           
         </div>
-      </div>
-    </div>
-
-  </div>
 </template>
 
 <style lang="scss">
@@ -103,6 +98,5 @@ onUnmounted(() => {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.8em;
-
 }
 </style>

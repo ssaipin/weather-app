@@ -64,7 +64,6 @@ const toggleUnit = () => {
     <h1 class="mb-4">Search Weather</h1>
     <p class="lead">Get accurate weather information for any city worldwide.</p>
     
-    <div class="row">
       <div class="col-lg-6 mx-auto">
 
         <!--Search input and button-->
@@ -88,12 +87,15 @@ const toggleUnit = () => {
         </div>
 
         <!--Weather Card-->
-        <div class="mt-4 d-flex justify-content-center">
+        <div class="mt-4 d-flex flex-column align-items-center">
           
           <weather-card
             v-if="weatherData"
             :city="weatherData.name"
             :temp="weatherData.main.temp"
+            :sunrise="weatherData.sys.sunrise"
+            :sunset="weatherData.sys.sunset"
+            :feels="weatherData.main.feels_like"
             :humidity="weatherData.main.humidity"
             :wind="weatherData.wind.speed"
             :desc="weatherData.weather[0].description"
@@ -103,9 +105,24 @@ const toggleUnit = () => {
             @toggle-unit="toggleUnit"
           />  
 
+          <!--Linked to forecst.vue-->         
+          <nuxt-link
+            v-if="weatherData"
+            :to="`/forecast?city=${encodeURIComponent(weatherData.name)}`"
+            class="btn btn-outline-primary mt-3"
+           >
+            View 5 Day forecast
+          </nuxt-link> 
+
         </div>
       </div>
-    </div>
   </div>
 
 </template>
+
+<style lang="scss">
+.btn-outline-primary {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+</style>

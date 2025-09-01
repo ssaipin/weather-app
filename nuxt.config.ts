@@ -2,25 +2,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: [
-    '@bootstrap-vue-next/nuxt',
 
-    
-  ],
+  // No BootstrapVue module needed
+  modules: [],
+
   css: [
-    'bootstrap/dist/css/bootstrap.min.css',
-    
+    'bootstrap/dist/css/bootstrap.min.css', // Bootstrap CSS
   ],
 
-  // runtimeConfig: {
-  //   public: {
-  //     weatherApiKey: process.env.NUXT_ENV_WEATHER_API_KEY,
-  //     weatherApiUrl: process.env.NUXT_ENV_WEATHER_BASE_URL
-  //   }
-  // },
-  
-   ssr: true,
-  
+  ssr: true,
+
   nitro: {
     preset: 'static'
   },
@@ -29,13 +20,13 @@ export default defineNuxtConfig({
     head: {
       title: 'Weather App',
       meta: [
+        { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { charset: 'utf-8' },     
       ],
       script: [
         {
           src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
-          tagPosition: 'bodyClose', // Recommended position for performance
+          tagPosition: 'bodyClose', // Load JS at end of body
         }
       ]
     }

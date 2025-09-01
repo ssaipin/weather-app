@@ -25,7 +25,7 @@
 
 <style lang="scss">
 img {
-  width: 400px;
+  width: 300px;
   height: auto;
 }
 .plusicon {
@@ -38,7 +38,7 @@ img {
   gap: 2em;
 }
 .card-info {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   margin-top: 2em;
   border-radius: 8px;
   padding: 2em;

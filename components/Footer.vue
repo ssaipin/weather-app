@@ -7,7 +7,9 @@
   </footer>
 </template>
 
-<style lang="sass">
-
-
+<style lang="scss">
+footer {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+}
 </style>

@@ -4,6 +4,9 @@ import { computed } from 'vue'
 const props = defineProps({
   city: { type: String, required: true },
   temp: { type: Number, required: true },
+  feels: { type: Number, required: true },
+  sunrise: { type: Number, required: true },
+  sunset: { type: Number, required: true },
   humidity: { type: Number, required: true },
   desc: { type: String, required: true },
   wind: { type: Number, required: true },
@@ -14,6 +17,7 @@ const props = defineProps({
 
 // Use props.unit in computed
 const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
+const windUnit = computed(() => props.unit === 'metric' ? 'm/s' : 'mph')
 </script>
 
 <template>
@@ -34,6 +38,7 @@ const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
           />
         </div>
         <p class="temp">{{ Math.round(temp) }}°{{ tempUnit }}</p>
+        <p class="desc">{{ desc }}</p>
         <p class="current-time">{{ currentTime }}</p>
       </div>
 
@@ -41,11 +46,13 @@ const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
       <button @click="$emit('toggle-unit')">
         Show in {{ unit === 'metric' ? '°F' : '°C' }}
       </button>
-    </div>  
-  
-    <p class="pt-4">Humidity: {{ humidity }}%</p>
-    <p>Condition: {{ desc }}</p>
-    <p>Wind Speed: {{ wind }} m/s</p>
+    </div> 
+
+    <p class="pt-4">Feels Like: {{ Math.round(feels) }}°{{ tempUnit }}</p>
+    <p>Humidity: {{ humidity }}%</p>
+    <p>Wind Speed: {{ wind }} {{ windUnit }}</p>
+    <p>Sun Rise: {{ new Date(sunrise * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) }}</p>
+    <p>Sun Set: {{ new Date(sunset * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) }}</p>
     
   </div>
 </template>
@@ -64,7 +71,7 @@ const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.3)
 }
 .left-side {
   display: flex;
@@ -79,6 +86,11 @@ const tempUnit = computed(() => props.unit === 'metric' ? 'C' : 'F')
 .temp {
   font-size: 4em;
   margin-top: -0.5em;
+}
+.desc {
+  font-size: 1.5em;
+  margin-top: -1.3em;
+  margin-bottom: 1.8em;
 }
 .current-time {
   font-size: 1.5em;
