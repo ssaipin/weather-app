@@ -176,7 +176,7 @@ const toggleUnit = () => {
 
     <!-- Forecast grid -->
     <div v-if="dailyForecast.length"
-      class="row text-center gap-4" >
+      class="row text-center justify-content-center gap-4" >
       <div
         v-for="(day, index) in dailyForecast.slice(0, 5)"
         :key="index"
