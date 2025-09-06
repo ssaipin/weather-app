@@ -49,7 +49,7 @@ const updateTime = (timezoneOffset) => {
 
 onMounted(async() => {
   await fetchWeatherData();
-  updateTime(-28800);
+  updateTime(currentWeather.value.timezone);
 });
 
 onUnmounted(() => {

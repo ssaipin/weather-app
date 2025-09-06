@@ -12,6 +12,7 @@ const errorMessage = ref('')
 const isLoading = ref(false)
 const unit = ref('imperial')
 const unitSymbol = computed(() => unit.value === 'metric' ? 'C' : 'F')
+const toggleLabel = computed(() => unit.value === 'metric' ? 'F' : 'C')
 const apiKey = 'c564faa43dd4b1742b9f018be4263a49'
 
 // Watch for URL change when navigating from search.vue
@@ -137,12 +138,13 @@ const toggleUnit = () => {
 </script>
 
 <template>
-  <div class="container mx-auto p-6">
+  <div class="container p-6">
     <h1 class="text-3xl font-bold mb-6 text-center">
       5 Day Forecast for {{ city }}
     </h1>
 
     <!--City Search-->
+   
     <div class="card-body text-center p-4">
       <form @submit.prevent="searchForCity">
         <div class="input-group input-group-lg">
@@ -161,10 +163,11 @@ const toggleUnit = () => {
           @click="toggleUnit"
           class="btn-outline-primary rounded p-2 mt-3 "
         >
-          °{{ unitSymbol }}
+          °{{ toggleLabel }}
         </button>
       </form>
     </div>
+    
 
     <!-- Error message -->
     <div v-if="errorMessage" class="text-red-500 text-center mb-4">
@@ -172,22 +175,25 @@ const toggleUnit = () => {
     </div>
 
     <!-- Forecast grid -->
-    <div v-if="dailyForecast.length">
+    <div v-if="dailyForecast.length"
+      class="row text-center gap-4" >
       <div
         v-for="(day, index) in dailyForecast.slice(0, 5)"
         :key="index"
-        class="rounded mb-4 shadow p-4 flex flex-col items-center text-center"
+        class="card rounded mb-4 shadow col-12 col-sm-6 col-md-4 col-lg-2"
       >
+      <div class="card-header mt-2">
         <p class="fw-bold">{{ day.date }}</p>
         
         <img
           :src="`https://openweathermap.org/img/wn/${day.icon}@2x.png`"
           :alt="day.description"
           style="width: 120px; height: 120px"
-        />
+          />
         <p class="capitalize fw-bold">
           {{ day.description }}
         </p>
+        </div>
         <p>H: {{ Math.round(day.maxTemp) }}°{{ unitSymbol }}</p>
         <p>L: {{ Math.round(day.minTemp) }}°{{ unitSymbol }}</p>
       </div>
@@ -209,5 +215,13 @@ const toggleUnit = () => {
 }
 .btn-outline-primary {
   background-color: transparent;
+}
+.card {
+  background-color: transparent;
+  border: 1px solid white;
+  width: 200px;
+}
+.card-header {
+  background-color: rgba(255, 255, 255, 0.3)
 }
 </style>

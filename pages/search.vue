@@ -64,8 +64,8 @@ const toggleUnit = () => {
     <h1 class="mb-4">Search Weather</h1>
     <p class="lead">Get accurate weather information for any city worldwide.</p>
     
+      
       <div class="col-lg-6 mx-auto">
-
         <!--Search input and button-->
         <div class="card-body text-center p-4">
           <form @submit.prevent="fetchWeatherData">
@@ -80,6 +80,7 @@ const toggleUnit = () => {
             </div>
           </form>
         </div>
+      
 
         <!--Error Message-->
         <div v-if="errorMessage" class="alert alert-danger mt-3 text-center">
@@ -115,7 +116,7 @@ const toggleUnit = () => {
           </nuxt-link> 
 
         </div>
-      </div>
+     </div>
   </div>
 
 </template>
