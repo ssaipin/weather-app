@@ -1,4 +1,11 @@
  <script setup>
+useHead({
+    title: 'About - Weather App',
+    meta: [
+      { name: 'description', content: 'Learn more about this Nuxt.js weather app and project its features.' }
+    ]
+})
+
  import NuxtLogo from '@/assets/NuxtLogo.png'
  import OpenWeatherLogo from '@/assets/OpenWeatherLogo.svg-.png'
  import PlusSign from '@/assets/plus.png'

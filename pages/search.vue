@@ -1,4 +1,11 @@
 <script setup>
+useHead({
+    title: 'Search Weather',
+    meta: [
+      { name: 'description', content: 'Search weather information for any city worldwide.' },
+    ]
+})
+
 import { ref } from 'vue'
 import WeatherCard from '@/components/WeatherCard.vue'
 

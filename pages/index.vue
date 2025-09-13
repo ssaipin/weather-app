@@ -1,4 +1,11 @@
 <script setup>
+useHead({
+    title: 'Current Weather Location - Home',
+    meta: [
+      { name: 'description', content: 'Welcome to the Weather App! Check real time and weather update' }
+    ]
+})
+
 import { ref, onMounted } from 'vue';
 import WeatherCard from '@/components/WeatherCard.vue';
 

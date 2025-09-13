@@ -1,4 +1,11 @@
 <script setup>
+useHead({
+    title: '5 Day Forecast',
+    meta: [
+      { name: 'description', content: 'Check the 5 day weather forecast for your city.' }
+    ]
+})
+
 import { ref, onMounted, computed, watch } from 'vue' 
 import { useRoute, useRouter } from 'vue-router'
 
